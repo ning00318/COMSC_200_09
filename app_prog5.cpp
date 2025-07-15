@@ -1,3 +1,5 @@
+// Provided Code
+
 // Exercise 10.10 Solution: ex10_10.cpp
 // RationalNumber test program.
 #include <iostream> 
