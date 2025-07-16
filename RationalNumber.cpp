@@ -63,7 +63,7 @@ RationalNumber RationalNumber::operator+(const RationalNumber& another) const
 
 RationalNumber RationalNumber::operator-(const RationalNumber& another) const
 {
-    RationalNumber result;  // Create a new RationalNumber object
+    RationalNumber result;
     result.numerator = numerator;
     result.denominator = denominator;
 
@@ -77,11 +77,19 @@ RationalNumber RationalNumber::operator-(const RationalNumber& another) const
     
     return RationalNumber(result.numerator, result.denominator);
 }
-/*
-RationalNumber RationalNumber::operator*(const RationalNumber&) const
-{
 
+RationalNumber RationalNumber::operator*(const RationalNumber& another) const
+{
+    RationalNumber result;
+    result.numerator = numerator;
+    result.denominator = denominator;
+
+    result.numerator *= another.numerator;
+    result.denominator *= another.denominator;
+    
+    return RationalNumber(result.numerator, result.denominator);
 }
+/*
 RationalNumber RationalNumber::operator/(const RationalNumber&) const
 {
 

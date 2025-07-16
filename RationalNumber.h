@@ -9,8 +9,8 @@ public:
     void printRational() const;
     RationalNumber operator+(const RationalNumber&) const;
     RationalNumber operator-(const RationalNumber&) const;
-/*    RationalNumber operator*(const RationalNumber&) const;
-    RationalNumber operator/(const RationalNumber&) const;
+    RationalNumber operator*(const RationalNumber&) const;
+/*    RationalNumber operator/(const RationalNumber&) const;
     RationalNumber &operator=(const RationalNumber&);
 
     bool operator<(const RationalNumber&) const;

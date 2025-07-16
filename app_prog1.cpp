@@ -22,7 +22,7 @@ int main()
    cout << " = ";
    x = c - d; // test overloaded operators - and =
    x.printRational();
-/*
+
    cout << '\n';
    c.printRational();
    cout << " * " ;
@@ -30,7 +30,7 @@ int main()
    cout << " = ";
    x = c * d; // test overloaded operators * and =
    x.printRational();
-
+/*
    cout << '\n';
    c.printRational();
    cout << " / " ;
