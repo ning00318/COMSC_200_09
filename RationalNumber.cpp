@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+#include <cmath>    // abs()
 #include <stdexcept>
 #include "RationalNumber.h"
 using namespace std;
@@ -9,21 +9,26 @@ RationalNumber::RationalNumber(int n, int d)
     if (d != 0)
     {
         bool nIsNegative = false;
-        if (d < 0)  // Moves the negative sign to the numerator when the denominator is less than 0.
+
+        // Comment 6: Moves the negative sign to the numerator when the denominator is less than 0.
+        if (d < 0)
         {
             n = -n;
             d = abs(d);
         }
+
+        // Comment 7: Makes the numerator positive if it is less than 0.
         if (n < 0)
         {
             nIsNegative = true;
             n = -n;
         }
-        // Find out the greatest common divisor of both values and simplifies them if needed.
+
+        // Comment 8: Find out the greatest common divisor of both values and simplify them if needed.
         int gcdValue = gcd(n, d);
         n /= gcdValue;
         d /= gcdValue;
-        if (nIsNegative)
+        if (nIsNegative)    // Comment 9: After finding out the gcd, put back the negative sign if needed.
             n = -n;
         numerator = n;
         denominator = d;
@@ -43,6 +48,7 @@ int RationalNumber::gcd(int n, int d)
     return n;
 }
 
+// Comment 10: There is no need to print out the denominator if its value is 1.
 void RationalNumber::printRational() const
 {
     if (denominator != 1)
@@ -51,6 +57,8 @@ void RationalNumber::printRational() const
         cout << numerator;
 }
 
+// Comment 11: When both denominators are the same, add both numerators to a new variable, and the denominator remains the
+//             same. Otherwise, convert fractions to a common denominator and update their corresponding numerators.
 RationalNumber RationalNumber::operator+(const RationalNumber& another) const
 {
     int nume, deno;
@@ -65,6 +73,8 @@ RationalNumber RationalNumber::operator+(const RationalNumber& another) const
         deno = denominator * another.denominator;
     }
     
+    // Comment 12: After having the updated numerator and denominator, invoke
+    //             the constructor to check if the output fraction is simplified.
     return RationalNumber(nume, deno);
 }
 
@@ -81,7 +91,7 @@ RationalNumber RationalNumber::operator-(const RationalNumber& another) const
         nume = numerator * another.denominator - denominator * another.numerator;
         deno = denominator * another.denominator;
     }
-    
+   
     return RationalNumber(nume, deno);
 }
 
@@ -110,6 +120,8 @@ RationalNumber &RationalNumber::operator=(const RationalNumber& another)
     return *this;
 }
 
+// Comment 13: When both denominators are the same, return whether the current numerator is greater than
+//             another.Otherwise, convert fractions to a common denominator and compare the numerators.
 bool RationalNumber::operator>(const RationalNumber& another) const
 {
     if (denominator == another.denominator)
@@ -118,7 +130,6 @@ bool RationalNumber::operator>(const RationalNumber& another) const
     {
         int currentNume = numerator * another.denominator;
         int anotherNume = denominator * another.numerator;
-        int Deno = denominator * another.denominator;
         return currentNume > anotherNume;
     }
 }
@@ -131,7 +142,6 @@ bool RationalNumber::operator<(const RationalNumber& another) const
     {
         int currentNume = numerator * another.denominator;
         int anotherNume = denominator * another.numerator;
-        int Deno = denominator * another.denominator;
         return currentNume < anotherNume;
     }
 }
@@ -144,7 +154,6 @@ bool RationalNumber::operator>=(const RationalNumber& another) const
     {
         int currentNume = numerator * another.denominator;
         int anotherNume = denominator * another.numerator;
-        int Deno = denominator * another.denominator;
         return currentNume >= anotherNume;
     }
 }
@@ -157,7 +166,6 @@ bool RationalNumber::operator<=(const RationalNumber& another) const
     {
         int currentNume = numerator * another.denominator;
         int anotherNume = denominator * another.numerator;
-        int Deno = denominator * another.denominator;
         return currentNume <= anotherNume;
     }
 }
@@ -170,7 +178,6 @@ bool RationalNumber::operator==(const RationalNumber& another) const
     {
         int currentNume = numerator * another.denominator;
         int anotherNume = denominator * another.numerator;
-        int Deno = denominator * another.denominator;
         return currentNume == anotherNume;
     }
 }
@@ -182,7 +189,6 @@ bool RationalNumber::operator!=(const RationalNumber& another) const
     {
         int currentNume = numerator * another.denominator;
         int anotherNume = denominator * another.numerator;
-        int Deno = denominator * another.denominator;
         return currentNume != anotherNume;
     }
 }
