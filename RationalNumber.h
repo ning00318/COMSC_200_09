@@ -8,8 +8,8 @@ public:
     RationalNumber(int, int);
     void printRational() const;
     RationalNumber operator+(const RationalNumber&) const;
-/*    RationalNumber operator-(const RationalNumber&) const;
-    RationalNumber operator*(const RationalNumber&) const;
+    RationalNumber operator-(const RationalNumber&) const;
+/*    RationalNumber operator*(const RationalNumber&) const;
     RationalNumber operator/(const RationalNumber&) const;
     RationalNumber &operator=(const RationalNumber&);
 

@@ -58,13 +58,26 @@ RationalNumber RationalNumber::operator+(const RationalNumber& another) const
         result.denominator *= another.denominator;
     }
     
-    return result;
+    return RationalNumber(result.numerator, result.denominator);
+}
+
+RationalNumber RationalNumber::operator-(const RationalNumber& another) const
+{
+    RationalNumber result;  // Create a new RationalNumber object
+    result.numerator = numerator;
+    result.denominator = denominator;
+
+    if (result.denominator == another.denominator)
+        result.numerator -= another.numerator;
+    else
+    {
+        result.numerator = result.numerator * another.denominator - result.denominator * another.numerator;
+        result.denominator *= another.denominator;
+    }
+    
+    return RationalNumber(result.numerator, result.denominator);
 }
 /*
-RationalNumber RationalNumber::operator-(const RationalNumber&) const
-{
-
-}
 RationalNumber RationalNumber::operator*(const RationalNumber&) const
 {
 
