@@ -6,7 +6,6 @@ class RationalNumber
 public:
     RationalNumber(int = 0, int = 0);
     void printRational() const;
-    
     RationalNumber operator+(const RationalNumber&) const;
     RationalNumber operator-(const RationalNumber&) const;
     RationalNumber operator*(const RationalNumber&) const;
@@ -22,6 +21,7 @@ public:
 private:
     int numerator;
     int denominator;
+    int gcd(int, int);
 };
 
 #endif
