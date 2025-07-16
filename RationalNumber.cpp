@@ -8,16 +8,23 @@ RationalNumber::RationalNumber(int n, int d)
 {
     if (d != 0)
     {
+        bool nIsNegative = false;
         if (d < 0)  // Moves the negative sign to the numerator when the denominator is less than 0.
         {
             n = -n;
             d = abs(d);
         }
-
+        if (n < 0)
+        {
+            nIsNegative = true;
+            n = -n;
+        }
         // Find out the greatest common divisor of both values and simplifies them if needed.
         int gcdValue = gcd(n, d);
         n /= gcdValue;
         d /= gcdValue;
+        if (nIsNegative)
+            n = -n;
         numerator = n;
         denominator = d;
     }
@@ -128,7 +135,7 @@ bool RationalNumber::operator<(const RationalNumber& another) const
         int currentNume = numerator * another.denominator;
         int anotherNume = denominator * another.numerator;
         int Deno = denominator * another.denominator;
-        if (currentNume < Deno)
+        if (currentNume > Deno)
             return currentNume < anotherNume;
         else
             return currentNume > anotherNume;
@@ -144,7 +151,7 @@ bool RationalNumber::operator>=(const RationalNumber& another) const
         int currentNume = numerator * another.denominator;
         int anotherNume = denominator * another.numerator;
         int Deno = denominator * another.denominator;
-        if (currentNume >= Deno)
+        if (currentNume > Deno)
             return currentNume >= anotherNume;
         else
             return currentNume <= anotherNume;
@@ -160,7 +167,7 @@ bool RationalNumber::operator<=(const RationalNumber& another) const
         int currentNume = numerator * another.denominator;
         int anotherNume = denominator * another.numerator;
         int Deno = denominator * another.denominator;
-        if (currentNume <= Deno)
+        if (currentNume > Deno)
             return currentNume <= anotherNume;
         else
             return currentNume >= anotherNume;
@@ -176,7 +183,7 @@ bool RationalNumber::operator==(const RationalNumber& another) const
         int currentNume = numerator * another.denominator;
         int anotherNume = denominator * another.numerator;
         int Deno = denominator * another.denominator;
-        if (currentNume == Deno)
+        if (currentNume > Deno)
             return currentNume == anotherNume;
         else
             return currentNume == anotherNume;
@@ -191,7 +198,7 @@ bool RationalNumber::operator!=(const RationalNumber& another) const
         int currentNume = numerator * another.denominator;
         int anotherNume = denominator * another.numerator;
         int Deno = denominator * another.denominator;
-        if (currentNume != Deno)
+        if (currentNume > Deno)
             return currentNume != anotherNume;
         else
             return currentNume != anotherNume;
