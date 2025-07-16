@@ -118,25 +118,82 @@ bool RationalNumber::operator>(const RationalNumber& another) const
             return currentNume < anotherNume;
     }
 }
-/*
-bool RationalNumber::operator<(const RationalNumber&) const
-{
 
-}
-bool RationalNumber::operator>=(const RationalNumber&) const
+bool RationalNumber::operator<(const RationalNumber& another) const
 {
-
+    if (denominator == another.denominator)
+        return numerator < another.numerator;
+    else
+    {
+        int currentNume = numerator * another.denominator;
+        int anotherNume = denominator * another.numerator;
+        int Deno = denominator * another.denominator;
+        if (currentNume < Deno)
+            return currentNume < anotherNume;
+        else
+            return currentNume > anotherNume;
+    }
 }
-bool RationalNumber::operator<=(const RationalNumber&) const
+
+bool RationalNumber::operator>=(const RationalNumber& another) const
 {
-
+    if (denominator == another.denominator)
+        return numerator >= another.numerator;
+    else
+    {
+        int currentNume = numerator * another.denominator;
+        int anotherNume = denominator * another.numerator;
+        int Deno = denominator * another.denominator;
+        if (currentNume >= Deno)
+            return currentNume >= anotherNume;
+        else
+            return currentNume <= anotherNume;
+    }
 }
-bool RationalNumber::operator==(const RationalNumber&) const
+
+bool RationalNumber::operator<=(const RationalNumber& another) const
 {
-
+    if (denominator == another.denominator)
+        return numerator <= another.numerator;
+    else
+    {
+        int currentNume = numerator * another.denominator;
+        int anotherNume = denominator * another.numerator;
+        int Deno = denominator * another.denominator;
+        if (currentNume <= Deno)
+            return currentNume <= anotherNume;
+        else
+            return currentNume >= anotherNume;
+    }
 }
-bool RationalNumber::operator!=(const RationalNumber&) const
+
+bool RationalNumber::operator==(const RationalNumber& another) const
 {
-
+    if (denominator == another.denominator)
+        return numerator == another.numerator;
+    else
+    {
+        int currentNume = numerator * another.denominator;
+        int anotherNume = denominator * another.numerator;
+        int Deno = denominator * another.denominator;
+        if (currentNume == Deno)
+            return currentNume == anotherNume;
+        else
+            return currentNume == anotherNume;
+    }
 }
-*/
+bool RationalNumber::operator!=(const RationalNumber& another) const
+{
+    if (denominator == another.denominator)
+        return numerator != another.numerator;
+    else
+    {
+        int currentNume = numerator * another.denominator;
+        int anotherNume = denominator * another.numerator;
+        int Deno = denominator * another.denominator;
+        if (currentNume != Deno)
+            return currentNume != anotherNume;
+        else
+            return currentNume != anotherNume;
+    }
+}

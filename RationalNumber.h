@@ -14,11 +14,11 @@ public:
     RationalNumber &operator=(const RationalNumber&);
 
     bool operator>(const RationalNumber&) const;
-/*    bool operator<(const RationalNumber&) const;
+    bool operator<(const RationalNumber&) const;
     bool operator>=(const RationalNumber&) const;
     bool operator<=(const RationalNumber&) const;
     bool operator==(const RationalNumber&) const;
-    bool operator!=(const RationalNumber&) const;*/
+    bool operator!=(const RationalNumber&) const;
 private:
     int numerator;
     int denominator;

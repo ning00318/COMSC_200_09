@@ -47,7 +47,7 @@ int main()
    cout << ( ( c > d ) ? "  > " : "  <= " );
    d.printRational();
    cout << " according to the overloaded > operator\n";
-/*
+
    // test overloaded less than operator
    cout << ( ( c < d ) ? "  < " : "  >= " );
    d.printRational();
@@ -73,7 +73,7 @@ int main()
    d.printRational();
    cout << " according to the overloaded != operator" << endl;
 
-   cin.get();*/
+   cin.get();
   // system("PAUSE");
    return 0;
 } // end main

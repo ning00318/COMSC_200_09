@@ -4,6 +4,7 @@
         "complex": "cpp",
         "iterator": "cpp",
         "string": "cpp",
-        "stdexcept": "cpp"
+        "stdexcept": "cpp",
+        "iostream": "cpp"
     }
 }
