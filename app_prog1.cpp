@@ -14,7 +14,7 @@ int main()
    cout << " = ";
    x = c + d; // test overloaded operators + and =
    x.printRational();
-
+/*
    cout << '\n';
    c.printRational();
    cout << " - " ;
@@ -73,7 +73,7 @@ int main()
    d.printRational();
    cout << " according to the overloaded != operator" << endl;
 
-   cin.get();
+   cin.get();*/
   // system("PAUSE");
    return 0;
 } // end main
