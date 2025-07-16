@@ -30,7 +30,7 @@ int main()
    cout << " = ";
    x = c * d; // test overloaded operators * and =
    x.printRational();
-/*
+
    cout << '\n';
    c.printRational();
    cout << " / " ;
@@ -47,7 +47,7 @@ int main()
    cout << ( ( c > d ) ? "  > " : "  <= " );
    d.printRational();
    cout << " according to the overloaded > operator\n";
-
+/*
    // test overloaded less than operator
    cout << ( ( c < d ) ? "  < " : "  >= " );
    d.printRational();

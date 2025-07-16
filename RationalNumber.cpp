@@ -46,72 +46,88 @@ void RationalNumber::printRational() const
 
 RationalNumber RationalNumber::operator+(const RationalNumber& another) const
 {
-    RationalNumber result;  // Create a new RationalNumber object
-    result.numerator = numerator;
-    result.denominator = denominator;
-
-    if (result.denominator == another.denominator)
-        result.numerator += another.numerator;
+    int nume, deno;
+    if (denominator == another.denominator)
+    {
+        nume = numerator + another.numerator;
+        deno = denominator;
+    }
     else
     {
-        result.numerator = result.numerator * another.denominator + result.denominator * another.numerator;
-        result.denominator *= another.denominator;
+        nume = numerator * another.denominator + denominator * another.numerator;
+        deno = denominator * another.denominator;
     }
     
-    return RationalNumber(result.numerator, result.denominator);
+    return RationalNumber(nume, deno);
 }
 
 RationalNumber RationalNumber::operator-(const RationalNumber& another) const
 {
-    RationalNumber result;
-    result.numerator = numerator;
-    result.denominator = denominator;
-
-    if (result.denominator == another.denominator)
-        result.numerator -= another.numerator;
+    int nume, deno;
+    if (denominator == another.denominator)
+    {
+        nume = numerator - another.numerator;
+        deno = denominator;
+    }
     else
     {
-        result.numerator = result.numerator * another.denominator - result.denominator * another.numerator;
-        result.denominator *= another.denominator;
+        nume = numerator * another.denominator - denominator * another.numerator;
+        deno = denominator * another.denominator;
     }
     
-    return RationalNumber(result.numerator, result.denominator);
+    return RationalNumber(nume, deno);
 }
 
 RationalNumber RationalNumber::operator*(const RationalNumber& another) const
 {
-    RationalNumber result;
-    result.numerator = numerator;
-    result.denominator = denominator;
-
-    result.numerator *= another.numerator;
-    result.denominator *= another.denominator;
+    int nume, deno;
+    nume = numerator * another.numerator;
+    deno = denominator * another.denominator;
     
-    return RationalNumber(result.numerator, result.denominator);
+    return RationalNumber(nume, deno);
+}
+
+RationalNumber RationalNumber::operator/(const RationalNumber& another) const
+{
+    int nume, deno;
+    nume = numerator * another.denominator;
+    deno = denominator * another.numerator;
+    
+    return RationalNumber(nume, deno);
+}
+
+RationalNumber &RationalNumber::operator=(const RationalNumber& another)
+{
+    numerator = another.numerator;
+    denominator = another.denominator;
+    return *this;
+}
+
+bool RationalNumber::operator>(const RationalNumber& another) const
+{
+    if (denominator == another.denominator)
+        return numerator > another.numerator;
+    else
+    {
+        int currentNume = numerator * another.denominator;
+        int anotherNume = denominator * another.numerator;
+        int Deno = denominator * another.denominator;
+        if (currentNume > Deno)
+            return currentNume > anotherNume;
+        else
+            return currentNume < anotherNume;
+    }
 }
 /*
-RationalNumber RationalNumber::operator/(const RationalNumber&) const
-{
-
-}
-RationalNumber &RationalNumber::operator=(const RationalNumber&)
-{
-
-}
-
 bool RationalNumber::operator<(const RationalNumber&) const
 {
 
 }
-bool RationalNumber::operator>(const RationalNumber&) const
+bool RationalNumber::operator>=(const RationalNumber&) const
 {
 
 }
 bool RationalNumber::operator<=(const RationalNumber&) const
-{
-
-}
-bool RationalNumber::operator>=(const RationalNumber&) const
 {
 
 }

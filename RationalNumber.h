@@ -10,13 +10,13 @@ public:
     RationalNumber operator+(const RationalNumber&) const;
     RationalNumber operator-(const RationalNumber&) const;
     RationalNumber operator*(const RationalNumber&) const;
-/*    RationalNumber operator/(const RationalNumber&) const;
+    RationalNumber operator/(const RationalNumber&) const;
     RationalNumber &operator=(const RationalNumber&);
 
-    bool operator<(const RationalNumber&) const;
     bool operator>(const RationalNumber&) const;
-    bool operator<=(const RationalNumber&) const;
+/*    bool operator<(const RationalNumber&) const;
     bool operator>=(const RationalNumber&) const;
+    bool operator<=(const RationalNumber&) const;
     bool operator==(const RationalNumber&) const;
     bool operator!=(const RationalNumber&) const;*/
 private:
